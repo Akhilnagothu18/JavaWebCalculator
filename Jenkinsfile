@@ -6,7 +6,7 @@ pipeline{
             steps{
 		 
                  echo 'Ansibleplaybook'
-	          sh 'ansible-playbook tomcat_install_ansible.yml'
+	          ansiblePlaybook become: true, installation: 'ansible', inventory: 'hosts', playbook: 'tomcat_install_ansible.yml'
             }
         }
        
