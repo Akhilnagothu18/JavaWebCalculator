@@ -1,12 +1,12 @@
 pipeline{
-    agent none
+	agent { label 'node1' }
     stages {
-        stage("Ansible-deploy"){
-	  agent { label 'node1' }
+	    stage("Ansible-deploy"){
             steps{
 		 
                  echo 'Ansibleplaybook'
-	          ansiblePlaybook become: true, installation: 'ansible', inventory: 'hosts', playbook: 'tomcat_install_ansible.yml'
+		 sh 'pwd'
+	         sh 'ansible-playbook tomcat_ansible.yml'
             }
         }
        
